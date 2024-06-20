@@ -24,7 +24,7 @@ font_family = ('Arial', 20)
 
 # Entry pour l'affichage des résultats
 
-display_frame = tk.Frame(root)
+display_frame = tk.Frame(root, height=221)
 display_frame.grid(row=0, column=0, columnspan=4, sticky="nsew")
 
 expression_total = tk.Label(display_frame, bg="white", fg="black", font=("Arial", 24))
@@ -33,8 +33,8 @@ expression_total.pack(expand=True, fill="both")
 current_entry = tk.Entry(display_frame, justify="right", bg="white", fg="black", font=("Arial", 40, "bold"))
 current_entry.pack(expand=True, fill="both")
 
-btn_frame = tk.Frame(root)
-btn_frame.grid(row=1, column=0, columnspan=4, sticky="nsew")
+btn_frame = tk.Label(display_frame)
+btn_frame.pack(expand=True, fill="both")
 
 specials_btn_frame = tk.Frame(btn_frame)
 specials_btn_frame.pack(expand=True, fill="both")
@@ -55,13 +55,13 @@ bouttons_specials = [
 
 # Création des boutons
 for (text, row, column) in buttons:
-    btn = tk.Button(normal_btn_frame, text=text, padx=20, pady=20, bg="white", fg="black", font=("Arial", 20), )
+    btn = tk.Button(normal_btn_frame, text=text, padx=220, pady=60, bg="white", fg="black", font=("Arial", 20), )
     btn.grid(row=row, column=column, sticky="nsew")
     btn.bind("<Button-1>", on_click)
 
 # Création des boutons spéciaux
 for (text, row, column) in bouttons_specials:
-    btn = tk.Button(specials_btn_frame, text=text, padx=20, pady=20, bg="white", fg="black", font=("Arial", 20), )
+    btn = tk.Button(specials_btn_frame, text=text, padx=221, pady=10, bg="white", fg="black", font=("Arial", 20), )
     btn.grid(row=row, column=column, sticky="nsew")
     btn.bind("<Button-1>", on_click)
 
