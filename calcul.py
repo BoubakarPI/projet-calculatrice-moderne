@@ -58,8 +58,10 @@ class Calculator:
                                                                                              sticky=tk.NSEW)
 
         i = 0
+        primaryColorLight = "#4B5EFC"
         for operator, symbol in self.operations.items():
-            tk.Button(self.buttons_frame, text=symbol, bg="#1a7fc2", fg="white", font=("Arial", 20), borderwidth=0,
+            tk.Button(self.buttons_frame, text=symbol, bg=primaryColorLight, fg="white", font=("Arial", 20),
+                      borderwidth=0,
                       command=lambda x=operator: self.append_operator(x)).grid(row=i, column=4, sticky=tk.NSEW)
             i += 1
 
@@ -92,9 +94,10 @@ class Calculator:
             self.update_label()
 
     def create_special_buttons(self):
+        primaryColorLight = "#4B5EFC"
         tk.Button(self.buttons_frame, text="C", bg="white", fg="black", font=("Arial", 20), borderwidth=0,
                   command=self.clear).grid(row=4, column=3, sticky=tk.NSEW)
-        tk.Button(self.buttons_frame, text="=", bg="#1a7fc2", fg="white", font=("Arial", 20), borderwidth=0,
+        tk.Button(self.buttons_frame, text="=", bg=primaryColorLight, fg="white", font=("Arial", 20), borderwidth=0,
                   command=self.evaluate).grid(row=4, column=4, sticky=tk.NSEW)
         tk.Button(self.buttons_frame, text="x²", bg="white", fg="black", font=("Arial", 20), borderwidth=0,
                   command=lambda: self.add_to_expression("**2")).grid(row=0, column=2, sticky=tk.NSEW)
