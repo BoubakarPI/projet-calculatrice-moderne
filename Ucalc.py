@@ -4,7 +4,7 @@ import tkinter as tk
 class Calculator:
     def __init__(self, root):
         self.root = root
-        self.root.title("Calculatrice")
+        self.root.title("Ucalc V0.1")
 
         self.total_expression = ""
         self.current_expression = ""
@@ -126,6 +126,11 @@ class Calculator:
         finally:
             self.update_label()
 
+    def sqrt(self):
+        import math
+        self.current_expression = str(math.sqrt(float(self.current_expression)))
+        self.update_label()
+
     def create_special_buttons(self):
         tk.Button(self.buttons_frame, text="C", bg=self.current_theme["button_bg"], fg=self.current_theme["button_fg"],
                   font=("Arial", 20), borderwidth=0, command=self.clear).grid(row=4, column=3, sticky=tk.NSEW)
@@ -139,9 +144,9 @@ class Calculator:
                                                                                                          sticky=tk.NSEW)
         tk.Button(self.buttons_frame, text="√", bg=self.current_theme["special_bg"],
                   fg=self.current_theme["special_fg"],
-                  font=("Arial", 20), borderwidth=0, command=lambda: self.add_to_expression("math.sqrt(")).grid(row=0,
-                                                                                                                column=3,
-                                                                                                                sticky=tk.NSEW)
+                  font=("Arial", 20), borderwidth=0, command=self.sqrt).grid(row=0,
+                                                                             column=3,
+                                                                             sticky=tk.NSEW)
         tk.Button(self.buttons_frame, text="exp", bg=self.current_theme["special_bg"],
                   fg=self.current_theme["special_fg"],
                   font=("Arial", 20), borderwidth=0, command=lambda: self.add_to_expression("**")).grid(row=0, column=1,
